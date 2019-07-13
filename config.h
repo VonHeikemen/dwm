@@ -104,17 +104,17 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[4]} }, // bstack (h)
   { MODKEY,                       XK_space,  setlayout,      {0} },
   { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+  /* { MODKEY,                       XK_Return, zoom,           {0} }, */
 
   // Move focus in current tag
 	{ MODKEY,                       XK_h,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_l,      focusstack,     {.i = -1 } },
 
   // Resize windows
+  { MODKEY|ShiftMask,                XK_h,      setmfact,       {.f = -0.05} },
+  { MODKEY|ShiftMask,                XK_l,      setmfact,       {.f = +0.05} },
 	/* { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } }, */
 	/* { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } }, */
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	/* { MODKEY,                       XK_Return, zoom,           {0} }, */
 
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
