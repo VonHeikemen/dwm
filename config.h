@@ -104,7 +104,7 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[4]} }, // bstack (h)
   { MODKEY,                       XK_space,  setlayout,      {0} },
   { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-  /* { MODKEY,                       XK_Return, zoom,           {0} }, */
+  { MODKEY|ShiftMask,             XK_m,      zoom,           {0} },
 
   // Move focus in current tag
 	{ MODKEY,                       XK_h,      focusstack,     {.i = +1 } },
@@ -113,8 +113,10 @@ static Key keys[] = {
   // Resize windows
   { MODKEY|ShiftMask,                XK_h,      setmfact,       {.f = -0.05} },
   { MODKEY|ShiftMask,                XK_l,      setmfact,       {.f = +0.05} },
-	/* { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } }, */
-	/* { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } }, */
+
+  // Move windows
+	{ MODKEY|ControlMask,           XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_d,      incnmaster,     {.i = -1 } },
 
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -128,11 +130,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+	/* TAGKEYS(                        XK_5,                      4) */
+	/* TAGKEYS(                        XK_6,                      5) */
+	/* TAGKEYS(                        XK_7,                      6) */
+	/* TAGKEYS(                        XK_8,                      7) */
+	/* TAGKEYS(                        XK_9,                      8) */
 };
 
 /* button definitions */
