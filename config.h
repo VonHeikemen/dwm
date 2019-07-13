@@ -75,8 +75,9 @@ static const char *pkgmanagercmd[]     = { "pamac-manager", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+
+  // Common applications
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_F2,     spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_F3,     spawn,          {.v = filemanagercmd } },
 	{ MODKEY,                       XK_F4,     spawn,          {.v = calccmd } },
@@ -86,31 +87,39 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = processviewercmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = pomodorocmd } },
 
+  // Run an application
+  { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+
+  // Close an application
   { MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 
+  // Toggle bar
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+
+  // Toggle between layouts
+  { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // tile
+  { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, // float
+  { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // monocle
+  { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} }, // bstack
+  { MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[4]} }, // bstack (h)
+  { MODKEY,                       XK_space,  setlayout,      {0} },
+  { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	/* { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } }, */
 	/* { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } }, */
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	/* { MODKEY,                       XK_Return, zoom,           {0} }, */
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
-	/* { MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} }, */
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-  { MODKEY|ShiftMask,             XK_Escape, quit,           {0} },
+  { MODKEY,                       XK_Escape, quit,           {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
