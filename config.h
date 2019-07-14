@@ -73,6 +73,7 @@ static const char *filemanagercmd[]    = { "pcmanfm", NULL };
 static const char *calccmd[]           = { "galculator", NULL };
 static const char *pkgmanagercmd[]     = { "pamac-manager", NULL };
 
+#include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 
@@ -114,12 +115,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      focusstack,     {.i = -1 } },
 
   // Resize windows
-  { MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
-  { MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
+  { MODKEY|ControlMask,             XK_h,      setmfact,       {.f = -0.05} },
+  { MODKEY|ControlMask,             XK_l,      setmfact,       {.f = +0.05} },
 
   // Move windows
 	{ MODKEY|ControlMask,           XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_d,      incnmaster,     {.i = -1 } },
+ 	{ MODKEY|ShiftMask,             XK_h,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_l,      movestack,      {.i = -1 } },
 
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
