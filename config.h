@@ -79,6 +79,16 @@ static const char *filemanagercmd[]    = { "pcmanfm", NULL };
 static const char *calccmd[]           = { "galculator", NULL };
 static const char *pkgmanagercmd[]     = { "pamac-manager", NULL };
 
+static const char *cmuspausecmd[]      = { "cmus-remote", "--pause", NULL };
+static const char *cmusprevcmd[]       = { "cmus-remote", "--prev", NULL };
+static const char *cmusnextcmd[]       = { "cmus-remote", "--next", NULL };
+static const char *cmusvolupcmd[]      = { "cmus-remote", "--vol", "+10%", NULL };
+static const char *cmusvoldowncmd[]    = { "cmus-remote", "--vol", "-10%", NULL };
+
+static const char *printscreenmd[]     = { "sh", "-c", "i3-scrot", NULL };
+static const char *printswindowmd[]    = { "sh", "-c", "i3-scrot",  "-w", NULL };
+static const char *printsselectionmd[] = { "sh", "-c", "i3-scrot",  "-s", NULL };
+
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -102,6 +112,18 @@ static Key keys[] = {
 
   // Exit dwm
   { MODKEY,                       XK_Escape, quit,           {0} },
+
+  // Control cmus
+  { NULL,                         XK_F9,     spawn,          {.v = cmuspausecmd } },
+  { NULL,                         XK_F10,    spawn,          {.v = cmusprevcmd } },
+  { NULL,                         XK_F11,    spawn,          {.v = cmusnextcmd } },
+  { MODKEY,                       XK_equal,  spawn,          {.v = cmusvolupcmd } },
+  { MODKEY,                       XK_minus,  spawn,          {.v = cmusvoldowncmd } },
+
+  // Screenshots
+  { NULL,                         XK_Print,  spawn,          {.v = printscreenmd } },
+  { MODKEY,                       XK_Print,  spawn,          {.v = printswindowmd } },
+  { MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = printsselectionmd } },
 
   // Toggle bar
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
