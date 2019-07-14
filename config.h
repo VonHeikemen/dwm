@@ -123,7 +123,7 @@ static Key keys[] = {
   // Screenshots
   { 0,                            XK_Print,  spawn,          {.v = printscreenmd } },
   { MODKEY,                       XK_Print,  spawn,          {.v = printswindowmd } },
-  { MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = printsselectionmd } },
+  { MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("i3-scrot -s") },
 
   // Toggle bar
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
