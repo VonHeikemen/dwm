@@ -114,9 +114,9 @@ static Key keys[] = {
   { MODKEY,                       XK_Escape, quit,           {0} },
 
   // Control cmus
-  { NULL,                         XK_F9,     spawn,          {.v = cmuspausecmd } },
-  { NULL,                         XK_F10,    spawn,          {.v = cmusprevcmd } },
-  { NULL,                         XK_F11,    spawn,          {.v = cmusnextcmd } },
+  { 0,                            XK_F9,     spawn,          {.v = cmuspausecmd } },
+  { 0,                            XK_F10,    spawn,          {.v = cmusprevcmd } },
+  { 0,                            XK_F11,    spawn,          {.v = cmusnextcmd } },
   { MODKEY,                       XK_equal,  spawn,          {.v = cmusvolupcmd } },
   { MODKEY,                       XK_minus,  spawn,          {.v = cmusvoldowncmd } },
 
