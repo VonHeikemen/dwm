@@ -115,14 +115,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      focusstack,     {.i = -1 } },
 
   // Resize windows
-  { MODKEY|ControlMask,             XK_h,      setmfact,       {.f = -0.05} },
-  { MODKEY|ControlMask,             XK_l,      setmfact,       {.f = +0.05} },
+  { MODKEY|Mod1Mask,             XK_h,      setmfact,       {.f = -0.05} },
+  { MODKEY|Mod1Mask,             XK_l,      setmfact,       {.f = +0.05} },
 
   // Move windows
 	{ MODKEY|ControlMask,           XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_d,      incnmaster,     {.i = -1 } },
- 	{ MODKEY|ShiftMask,             XK_h,      movestack,      {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_l,      movestack,      {.i = -1 } },
+ 	{ MODKEY,                       XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY,                       XK_k,      movestack,      {.i = -1 } },
 
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
