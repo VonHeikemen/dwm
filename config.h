@@ -87,7 +87,7 @@ static const char *cmusvoldowncmd[]    = { "cmus-remote", "--vol", "-10%", NULL 
 
 static const char *printscreenmd[]     = { "sh", "-c", "i3-scrot", NULL };
 static const char *printswindowmd[]    = { "sh", "-c", "i3-scrot -w", NULL };
-static const char *printsselectionmd[] = { "sh", "-i", "-c", "i3-scrot -s", NULL };
+static const char *printsselectionmd[] = { "sh", "-c", "sleep 0.2; i3-scrot -s", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -123,7 +123,7 @@ static Key keys[] = {
   // Screenshots
   { 0,                            XK_Print,  spawn,          {.v = printscreenmd } },
   { MODKEY,                       XK_Print,  spawn,          {.v = printswindowmd } },
-  { MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("sleep 0.2; i3-scrot -s") },
+  { MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = printsselectionmd } },
 
   // Toggle bar
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
