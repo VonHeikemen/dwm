@@ -121,7 +121,7 @@ static Key keys[] = {
   { MODKEY,                       XK_minus,  spawn,          {.v = cmusvoldowncmd } },
 
   // Screenshots
-  { NULL,                         XK_Print,  spawn,          {.v = printscreenmd } },
+  { 0,                            XK_Print,  spawn,          {.v = printscreenmd } },
   { MODKEY,                       XK_Print,  spawn,          {.v = printswindowmd } },
   { MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = printsselectionmd } },
 
