@@ -85,9 +85,12 @@ static const char *cmusnextcmd[]       = { "cmus-remote", "--next", NULL };
 static const char *cmusvolupcmd[]      = { "cmus-remote", "--vol", "+10%", NULL };
 static const char *cmusvoldowncmd[]    = { "cmus-remote", "--vol", "-10%", NULL };
 
-static const char *printscreenmd[]     = { "i3-scrot", NULL };
-static const char *printswindowmd[]    = { "i3-scrot", "-w", NULL };
-static const char *printsselectionmd[] = { "sh", "-c", "sleep 0.2; i3-scrot -s", NULL };
+static const char *printscreencmd[]     = { "i3-scrot", NULL };
+static const char *printswindowcmd[]    = { "i3-scrot", "-w", NULL };
+static const char *printsselectioncmd[] = { "sh", "-c", "sleep 0.2; i3-scrot -s", NULL };
+
+static const char *exitcmd[] = { "oblogout", "-c", "~/my-configs/dwm/oblogout.conf", NULL };
+static const char *lockcmd[] = { "blurlock", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -111,7 +114,8 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 
   // Exit dwm
-  { MODKEY,                       XK_Escape, quit,           {0} },
+  { MODKEY,                       XK_Escape, spawn,          {.v = exitcmd } },
+  { MODKEY,                       XK_9,      spawn,          {.v = lockcmd } },
 
   // Control cmus
   { 0,                            XK_F9,     spawn,          {.v = cmuspausecmd } },
@@ -121,9 +125,9 @@ static Key keys[] = {
   { MODKEY,                       XK_minus,  spawn,          {.v = cmusvoldowncmd } },
 
   // Screenshots
-  { 0,                            XK_Print,  spawn,          {.v = printscreenmd } },
-  { MODKEY,                       XK_Print,  spawn,          {.v = printswindowmd } },
-  { MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = printsselectionmd } },
+  { 0,                            XK_Print,  spawn,          {.v = printscreencmd } },
+  { MODKEY,                       XK_Print,  spawn,          {.v = printswindowcmd } },
+  { MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = printsselectioncmd } },
 
   // Toggle bar
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
