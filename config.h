@@ -39,6 +39,7 @@ static const Rule rules[] = {
 	{ "alsamixer",      NULL,       NULL,       0,            1,             1,           -1 },
 	{ "Nitrogen",       NULL,       NULL,       0,            1,             1,           -1 },
 	{ "gcolor2",        NULL,       NULL,       0,            1,             1,           -1 },
+	{ "Oblogout",       NULL,       NULL,       0,            1,             1,           -1 },
 };
 
 /* layout(s) */
