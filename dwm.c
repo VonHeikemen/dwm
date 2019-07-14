@@ -1383,8 +1383,8 @@ run(void)
 
 void
 runAutostart(void) {
-	system("cd ~/my-configs; ./autostart_blocking.sh");
-	system("cd ~/my-configs; ./autostart.sh &");
+	/* system("cd ~/my-configs/dwm; ./autostart_blocking.sh"); */
+	system("cd ~/my-configs/dwm; ./autostart.sh &");
 }
 
 void
