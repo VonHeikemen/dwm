@@ -89,7 +89,7 @@ static const char *printscreencmd[]     = { "i3-scrot", NULL };
 static const char *printswindowcmd[]    = { "i3-scrot", "-w", NULL };
 static const char *printsselectioncmd[] = { "sh", "-c", "sleep 0.2; i3-scrot -s", NULL };
 
-static const char *exitcmd[] = { "oblogout", "-c", "~/my-configs/dwm/oblogout.conf", NULL };
+static const char *exitcmd[] = { "sh", "-c", "oblogout -c ~/my-configs/dwm/oblogout.conf", NULL };
 static const char *lockcmd[] = { "blurlock", NULL };
 
 #include "movestack.c"
