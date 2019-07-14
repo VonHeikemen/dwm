@@ -87,7 +87,7 @@ static const char *cmusvoldowncmd[]    = { "cmus-remote", "--vol", "-10%", NULL 
 
 static const char *printscreenmd[]     = { "sh", "-c", "i3-scrot", NULL };
 static const char *printswindowmd[]    = { "sh", "-c", "i3-scrot -w", NULL };
-static const char *printsselectionmd[] = { "sh", "-c", "i3-scrot -s", NULL };
+static const char *printsselectionmd[] = { "i3-scrot", "-s", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
