@@ -93,6 +93,9 @@ static const char *printsselectioncmd[] = { "sh", "-c", "sleep 0.2; i3-scrot -s"
 static const char *exitcmd[] = { "sh", "-c", "oblogout -c ~/my-configs/dwm/oblogout.conf", NULL };
 static const char *lockcmd[] = { "blurlock", NULL };
 
+static const char *hidemousecmd[] = { "xdotool", "mousemove", "0", "1080", NULL };
+static const char *showmousecmd[] = { "xdotool", "mousemove", "960", "540", NULL };
+
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -158,6 +161,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
  	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+
+
+	{ MODKEY,                       XK_x,      spawn,          {.v = hidemousecmd } },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = showmousecmd } },
 
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
