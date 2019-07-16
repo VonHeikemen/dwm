@@ -36,9 +36,9 @@ static const Rule rules[] = {
   { "Firefox",        NULL,       NULL,       1 << 8,       0,             0,           -1 },
   { "Pamac-manager",  NULL,       NULL,       0,            1,             1,           -1 },
   { "Galculator",     NULL,       NULL,       0,            1,             1,           -1 },
-  { "alsamixer",      NULL,       NULL,       0,            1,             1,           -1 },
+  { "Alsamixer",      NULL,       NULL,       0,            1,             1,           -1 },
   { "Nitrogen",       NULL,       NULL,       0,            1,             1,           -1 },
-  { "gcolor2",        NULL,       NULL,       0,            1,             1,           -1 },
+  { "Gcolor2",        NULL,       NULL,       0,            1,             1,           -1 },
   { "Oblogout",       NULL,       NULL,       0,            1,             1,           -1 },
 };
 
