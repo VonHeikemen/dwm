@@ -69,7 +69,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]          = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[]          = { "dmenu_recency", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]           = { "kitty", NULL };
 static const char *musicplayercmd[]    = { "kitty", "-e", "tmux", "new-session", "-A", "-D", "-s", "music", "sh -c 'cmus'", NULL };
 static const char *pomodorocmd[]       = { "kitty", "-e", "tmux", "new-session", "-A", "-D", "-s", "pomodoro", NULL };
@@ -120,6 +120,7 @@ static Key keys[] = {
   // Exit dwm
   { MODKEY,                       XK_Escape, spawn,          {.v = exitcmd } },
   { MODKEY,                       XK_9,      spawn,          {.v = lockcmd } },
+  { MODKEY|ShiftMask,             XK_Escape, quit,           {0} },
 
   // Control cmus
   { 0,                            XK_F9,     spawn,          {.v = cmuspausecmd } },
