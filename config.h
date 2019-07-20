@@ -114,7 +114,7 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = pomodorocmd } },
 
   // Check internet connection
-  { MODKEY|ShiftMask,             XK_i,      spawn,          {.v = checkinternetcmd } },
+  { MODKEY,                       XK_c,      spawn,          {.v = checkinternetcmd } },
 
   // Run an application
   { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
