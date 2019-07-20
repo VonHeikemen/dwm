@@ -96,7 +96,7 @@ static const char *lockcmd[]            = { "blurlock", NULL };
 static const char *hidemousecmd[]       = { "xdotool", "mousemove", "0", "1080", NULL };
 static const char *showmousecmd[]       = { "xdotool", "mousemove", "960", "540", NULL };
 
-static const char *checkinternetcmd     = { "node", "~/code-stuff/check-internet/index.js", "\"$(which chromium)\"", NULL };
+static const char *checkinternetcmd[]   = { "node", "~/code-stuff/check-internet/index.js", "\"$(which chromium)\"", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
