@@ -69,7 +69,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]           = { "dmenu_recency", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+/* static const char *dmenucmd[]           = { "dmenu_recency", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
+static const char *dmenucmd[]           = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]            = { "kitty", NULL };
 static const char *musicplayercmd[]     = { "kitty", "-e", "tmux", "new-session", "-A", "-D", "-s", "music", "sh -c 'cmus'", NULL };
 static const char *pomodorocmd[]        = { "kitty", "-e", "tmux", "new-session", "-A", "-D", "-s", "pomodoro", NULL };
@@ -93,10 +94,18 @@ static const char *printsselectioncmd[] = { "sh", "-c", "sleep 0.2; i3-scrot -s"
 static const char *exitcmd[]            = { "sh", "-c", "oblogout -c ~/my-configs/dwm/oblogout.conf", NULL };
 static const char *lockcmd[]            = { "blurlock", NULL };
 
-static const char *hidemousecmd[]       = { "xdotool", "mousemove", "0", "1080", NULL };
+static const char *checkinternetcmd[]   = { "sh", "-c", "node ~/code-stuff/check-internet/index.js /usr/bin/chromium", NULL };
+
+static const char *hidemousecmd[]       = { "xdotool", "mousemove", "1920", "1080", NULL };
 static const char *showmousecmd[]       = { "xdotool", "mousemove", "960", "540", NULL };
 
-static const char *checkinternetcmd[]   = { "sh", "-c", "node ~/code-stuff/check-internet/index.js /usr/bin/chromium", NULL };
+static const char *mouse_move_up[]      = { "xdotool", "mousemove_relative", "--sync", "--", "0", "-25", NULL };
+static const char *mouse_move_down[]    = { "xdotool", "mousemove_relative", "--sync", "--", "0", "25", NULL };
+static const char *mouse_move_left[]    = { "xdotool", "mousemove_relative", "--sync", "--", "-25", "0", NULL };
+static const char *mouse_move_right[]   = { "xdotool", "mousemove_relative", "--sync", "--", "25", "0", NULL };
+static const char *mouse_click_right[]  = { "xdotool", "click", "--clearmodifiers", "3", NULL };
+static const char *mouse_click_left[]   = { "xdotool", "click", "--clearmodifiers", "1", NULL };
+
 
 #include "movestack.c"
 static Key keys[] = {
@@ -171,6 +180,12 @@ static Key keys[] = {
 
   { MODKEY,                       XK_x,      spawn,          {.v = hidemousecmd } },
   { MODKEY|ShiftMask,             XK_x,      spawn,          {.v = showmousecmd } },
+  { MODKEY,                       XK_Up,     spawn,          {.v = mouse_move_up } },
+  { MODKEY,                       XK_Down,   spawn,          {.v = mouse_move_down } },
+  { MODKEY,                       XK_Left,   spawn,          {.v = mouse_move_left } },
+  { MODKEY,                       XK_Right,  spawn,          {.v = mouse_move_right } },
+  { MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = mouse_click_left } },
+  { MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = mouse_click_right } },
 
   { MODKEY,                       XK_Tab,    view,           {0} },
   { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
